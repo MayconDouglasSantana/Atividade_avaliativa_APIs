@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SERVER_PORT: "8080"
+      SPRING_PROFILES_ACTIVE: "demo"
+      SPRING_DATASOURCE_URL: "jdbc:h2:mem:onganimais;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: "org.h2.Driver"
+      SPRING_DATASOURCE_USERNAME: "sa"
+      SPRING_DATASOURCE_PASSWORD: ""
+      SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
+      ONG_ADOCAO_DEMO_VOLUNTARIO_EMAIL: "${ONG_ADOCAO_DEMO_VOLUNTARIO_EMAIL:-voluntario@ong.local}"
+      ONG_ADOCAO_DEMO_VOLUNTARIO_SENHA: "${ONG_ADOCAO_DEMO_VOLUNTARIO_SENHA:-Voluntario123!}"
+      ONG_ADOCAO_DEMO_COORDENADOR_EMAIL: "${ONG_ADOCAO_DEMO_COORDENADOR_EMAIL:-coordenador@ong.local}"
+      ONG_ADOCAO_DEMO_COORDENADOR_SENHA: "${ONG_ADOCAO_DEMO_COORDENADOR_SENHA:-Coordenador123!}"
